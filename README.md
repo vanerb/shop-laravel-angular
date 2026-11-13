@@ -17,6 +17,16 @@ Tienda online simulada de principio a fin: catálogo, cesta, pedidos y un panel 
 
 Ver el catálogo es público; comprar exige iniciar sesión y la administración, una cuenta de administrador.
 
+### Capturas
+
+**Tienda**
+
+![Portada de la tienda con el producto destacado](docs/screenshots/tienda.webp)
+
+<p align="center">
+  <img src="docs/screenshots/movil.webp" alt="La tienda en un móvil" width="280">
+</p>
+
 ## Demo
 
 La demo es el frontend compilado en modo `demo`: la API de Laravel se sustituye por una simulada dentro del navegador (`frontend/src/app/demo/`). Tus cambios se guardan en el `localStorage` de tu navegador y el botón del aviso inferior vuelve a los datos iniciales.
