@@ -40,7 +40,8 @@ jobs:
         working-directory: frontend
         run: npx ng build --configuration production,demo --base-href "/${{ github.event.repository.name }}/"
 
-      # Las rutas usan hash (#/...); un enlace sin hash (/Shop-Laravel-Angular/basket) se reenvía a #/basket.
+      # Las rutas usan hash (#/...); un enlace sin hash (/shop-laravel-angular/basket) se reenvía a #/basket.
+      # La base sale de la propia URL, así que sigue funcionando si el repositorio cambia de nombre.
       - name: Añadir 404.html
         run: |
           cat > frontend/dist/frontend/browser/404.html <<'EOF'
@@ -48,8 +49,8 @@ jobs:
           <meta charset="utf-8">
           <title>Nativa</title>
           <script>
-            var base = '/Shop-Laravel-Angular';
-            var route = location.pathname.indexOf(base) === 0 ? location.pathname.slice(base.length) : '/';
+            var base = '/' + location.pathname.split('/')[1];
+            var route = location.pathname.slice(base.length);
             location.replace(base + '/#' + (route || '/') + location.search);
           </script>
           EOF
